@@ -332,7 +332,17 @@ const [uploadingMedia, setUploadingMedia] = useState(false)
                 )}
               </div>
               <a
-  href={`https://t.me/${BOT_USERNAME}?start=case_${(proj.title || 'project').trim().replace(/\s+/g, '_')}`}
+ href={`https://t.me/${BOT_USERNAME}?start=case_${
+  (proj.title || 'project')
+    .toLowerCase()
+    .replace(/[а-яё]/g, char => ({
+      а:'a',б:'b',в:'v',г:'g',д:'d',е:'e',ё:'yo',ж:'zh',з:'z',и:'i',й:'y',
+      к:'k',л:'l',м:'m',н:'n',о:'o',п:'p',р:'r',с:'s',т:'t',у:'u',ф:'f',
+      х:'kh',ц:'ts',ч:'ch',ш:'sh',щ:'shch',ъ:'',ы:'y',ь:'',э:'e',ю:'yu',я:'ya'
+    }[char] || ''))
+    .replace(/[^a-z0-9_]/g, '_')
+    .replace(/_+/g, '_')
+}`}
   target="_blank"
   rel="noopener noreferrer"
   className="btn btn-primary"
