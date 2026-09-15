@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from './supabaseClient'
 import './App.css'
+const BOT_USERNAME = "OscarContactBot" // Например: "my_portfolio_bot"
 
 export default function App() {
   const [projects, setProjects] = useState([])
@@ -330,6 +331,20 @@ const [uploadingMedia, setUploadingMedia] = useState(false)
                   </a>
                 )}
               </div>
+              <a
+  href={`https://t.me/${BOT_USERNAME}?start=case_${proj.id}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="btn btn-primary"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "8px",
+    textDecoration: "none"
+  }}
+>
+  💬 Обсудить проект
+</a>
             </div>
           ))
         )}
