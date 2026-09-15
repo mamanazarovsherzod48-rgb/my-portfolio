@@ -332,7 +332,7 @@ const [uploadingMedia, setUploadingMedia] = useState(false)
                 )}
               </div>
               <a
-  href={`https://t.me/${BOT_USERNAME}?start=case_${proj.id}`}
+  href={`https://t.me/${BOT_USERNAME}?start=case_${(proj.title || 'project').trim().replace(/\s+/g, '_')}`}
   target="_blank"
   rel="noopener noreferrer"
   className="btn btn-primary"
